@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> form_input00 </title>
+	</head>
+
+	<body>
+		<h1>HTML 表单和输入</h1>
+		<hr />
+		<pre><big>
+HTML 表单用于收集用户的输入信息。
+
+HTML 表单表示文档中的一个区域，此区域包含交互控件，将用户收集到的信息发送到 Web 服务器。
+
+HTML 表单通常包含各种输入字段、复选框、单选按钮、下拉列表等元素。
+
+以下是一个简单的HTML表单的例子:
+		</ big></pre>
+		<ul style="color: blanchedalmond;background-color:black">
+			<li>&lt;form&gt; 元素用于创建表单,
+				action 属性定义了表单数据提交的目标 URL, method 属性定义了提交数据的 
+				HTTP 方法（这里使用的是 "post"）。
+			</li>
+			<li>
+				&lt;label&gt; 元素用于为表单元素添加标签，提高可访问性。
+			</li>
+			<li>
+				&lt;input&gt; 元素是最常用的表单元素之一，它可以创建文本输入框、密码框、单选按钮、
+				复选框等。type 属性定义了输入框的类型,id 属性用于关联 &lt;label&gt; 
+				元素,name 属性用于标识表单字段。
+			</li>
+			<li>
+				&lt;select&gt; 元素用于创建下拉列表，而 &lt;option&gt; 元素用于定义下拉列表中的选项。
+			</li>
+		</ul>
+		<form action="/" method="post">
+			<!-- 文本输入框 -->
+			<label for="id_name">用户名:</label>
+			<input type="text" id="id_name" name="name" required>
+		
+			<br />
+		
+			<!-- 密码输入框 -->
+			<label for="id_password">密码:</label>
+			<input type="password" id="id_password" name="password" required>
+		
+			<br />
+		
+			<!-- 单选按钮 -->
+			<label>性别:</label>
+			<input type="radio" id="id_male" name="gender" value="male" checked>
+			<label for="id_male">男</label>
+			<input type="radio" id="id_female" name="gender" value="female">
+			<label for="id_female">女</label>
+		
+			<br />
+		
+			<!-- 复选框 -->
+			<input type="checkbox" id="id_subscribe" name="subscribe" checked>
+			<label for="id_subscribe">订阅推送信息</label>
+		
+			<br>
+		
+			<!-- 下拉列表 -->
+			<label for="country">国家:</label>
+			<select id="country" name="country">
+				<option value="cn">CN</option>
+				<option value="usa" selected>USA</option>
+				<option value="uk">UK</option>
+			</select>
+		
+			<br>
+		
+			<!-- 提交按钮 -->
+			<input type="submit" value="提交">
+		</form>
+		<hr />
+
+		<!-- 以下表单使用 GET 请求发送数据到当前的 URL，method 默认位 GET。 -->
+		<form>
+			<label>
+				Name:
+				<input name="submitted-name" autocomplete="name">
+			</label>
+			<button>Save</button>
+		</form>
+		
+		<!-- 以下表单使用 POST 请求发送数据到当前的 URL。 -->
+		<form method="post">
+			<label>Name:
+			<input name="submitted-name" autocomplete="name">
+			</label>
+			<button>Save</button>
+		</form>
+		
+		<!-- 表单使用 fieldset, legend, 和 label 标签 -->
+		<form method="post">
+			<fieldset>
+				<legend>Title</legend>
+				<label>
+					<input type="radio" name="radio">
+					Select me
+				</label>
+			</fieldset>
+		</form>
+		<textarea rows="10" cols="10">
+			test 
+			test
+			test dsfd fdsffd
+		</textarea>
+	</body>
+</html>
