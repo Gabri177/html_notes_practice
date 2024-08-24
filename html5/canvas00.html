@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>canvas00</title>
+
+	</head>
+
+	<body>
+		<h1>什么是Canvas?</h1>
+		<hr />
+		<p>HTML5 用这个标签进行图形的绘制, 通过脚本, 通常是JavaScript来完成</p>
+		<p>&lt;canvas&gt;标签只是图形容器, 我们必须使用脚本来进行图形的绘制</p>
+		<p>我们可以通过多种方法使用canvas绘制路径, 盒, 圆, 字符, 以及添加图像</p>
+		<h1>创建一个画布 (canvas)</h1>
+		<hr />
+		<p>一个画布在网页中是一个矩形框, 通过&lt;canvas&gt;元素来绘制</p>
+		<p><strong>注意:</strong> 默认情况下, canvas 元素没有边框和内容</p>
+		<fieldset>
+			<legend>example</legend>
+			<canvas id="id_canvas" width="200" height="100" style="border: 1px solid #b8cadc;">
+			</canvas>
+		</fieldset>
+		<h1>使用JS来绘制图像</h1>
+		<hr />
+		<p>canvas 元素本身是没有绘图能力的. 所有的绘制工作必须在JS内部完成</p>
+		<script>
+			var c = document.getElementById("id_canvas");
+			var ctx = c.getContext("2d");
+			ctx.fillStyle="#FF0000";
+			ctx.fillRect(0,0,150,75);
+		</script>
+		<h1>canvas 坐标</h1>
+		<hr />
+		<p>canvas 是一个二维网络</p>
+		<p>canvas 的左上角的坐标是 (0,0)</p>
+		<h1>canvas 路径</h1>
+		<hr />
+		<img src="../src/image.jpg" id="id_image_cat" name="name_image_cat">
+		<p>在canvas上画线, 我们将使用以下两种方法</p>
+		<ol>
+			<li>
+				<code>
+					moveT(x, y)定义线条开始坐标
+				</code>
+			</li>
+			<li>
+				<code>
+					lineTo(x, y)定义线条结束坐标
+				</code>
+			</li>
+		</ol>
+		<p>
+			<fieldset>
+				<legend>
+					<strong>
+						这是其他canvas的例子
+					</strong>
+				</legend>
+				<div id="div_canvas_line" style="float: left; margin-left:0px">
+					<canvas id="id_canvas_line" width="200" height="200" style="border:1px solid #7466e1"></canvas>
+					<script>
+						var c = document.getElementById("id_canvas_line")
+						var ctx = c.getContext("2d");
+						
+						ctx.moveTo(0, 0);
+						ctx.lineTo(200, 200);
+						ctx.stroke();
+					</script>
+				</div>
+				<div id="div_canvas_circle" style="float: left; margin-left:10px">
+					<canvas id="id_canvas_circle" width="200" height="200" style="border:1px solid #7466e1"></canvas>
+					<script>
+						var c = document.getElementById("id_canvas_circle")
+						var ctx = c.getContext("2d");
+						ctx.beginPath();
+						ctx.arc(100,100,100, 1/2 * (2 * Math.PI),2*Math.PI);
+						ctx.stroke();
+					</script>
+				</div>
+				<div id="div_canvas_font" style="float: left; margin-left:10px">
+					<canvas id="id_canvas_font" width="200" height="200" style="border:1px solid #7466e1"></canvas>
+					<script>
+						var c = document.getElementById("id_canvas_font")
+						var ctx=c.getContext("2d");
+						ctx.font="30px Arial";
+						ctx.fillText("Hello World",10,50);
+						ctx.font="20px Arial";
+						ctx.strokeText("World Hello", 30, 100)
+					</script>
+				</div>
+				<div id="div_canvas_gradient" style="float: left; margin-left:10px">
+					<canvas id="id_canvas_gradient" width="200" height="200" style="border:1px solid #7466e1"></canvas>
+					<script>
+						var c = document.getElementById("id_canvas_gradient")
+						var ctx=c.getContext("2d");
+						
+						// 创建渐变 左上角
+						var grd=ctx.createLinearGradient(0,0,100,100);
+						grd.addColorStop(0,"yellow");
+						grd.addColorStop(1,"green");
+						// 填充渐变
+						ctx.fillStyle=grd;
+						ctx.fillRect(0,0,100,100);
+
+
+						// 创建渐变 右下角
+						grd=ctx.createRadialGradient(100,100,100,200,200,50);
+						grd.addColorStop(0,"blue");
+						grd.addColorStop(1,"white");
+						// 填充渐变
+						ctx.fillStyle=grd;
+						ctx.fillRect(100,100,200,200);
+
+
+						var img=document.getElementById("id_image_cat");
+						ctx.drawImage(img,100, 0, 100, 100);
+					</script>
+				</div>
+			</fieldset>
+			
+		</p>
+
+	</body>
+</html>
+
+
