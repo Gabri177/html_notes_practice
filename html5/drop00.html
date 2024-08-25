@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8"> 
+		<title>drop00</title>
+		<style type="text/css">
+			#div1, #div2 {
+				width:200px;
+				height:200px;
+				padding:20px;
+				border:1px solid #992020;
+				float: left;
+			}
+
+			img {
+				display: block;
+				clear: both;
+			}
+		</style>
+		<script>
+			function allowDrop(ev)
+			{
+				ev.preventDefault();
+			}
+			
+			function drag(ev)
+			{
+				ev.dataTransfer.setData("Text",ev.target.id);
+			}
+			
+			function drop(ev)
+			{
+				ev.preventDefault();
+				var data=ev.dataTransfer.getData("Text");
+				ev.target.appendChild(document.getElementById(data));
+			}
+		</script>
+	</head>
+	<body>
+	
+	<p>拖动 RUNOOB.COM 图片到矩形框中:</p>
+	
+	<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+	<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+	<img id="drag1" src="../src/image.jpg" width="100" height="100" draggable="true" ondragstart="drag(event)">
+	
+	</body>
+</html>
