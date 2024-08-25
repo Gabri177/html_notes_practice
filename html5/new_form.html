@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>new_form</title>
+	</head>
+	<body>
+		<h1>
+			HTML5 中新的表单元素
+		</h1>
+		<hr>
+		<h2>HTML5 &lt;datalist&gt; 元素</h2>
+		<p>&lt;datalist&gt; 元素规定输入域的选项列表</p>
+		<p>&lt;datalist&gt; 属性规定form 或 input 域应该拥有自动完成功能. 当用户在自动完成域中开始输入时,
+			浏览器应该在该域中显示填写的选项
+		</p>
+		<form>
+			<input list="browsers" name="browser">
+			<datalist id="browsers">
+				<option value="Internet Explorer">
+				<option value="Firefox">
+				<option value="Chrome">
+				<option value="Opera">
+				<option value="Safari">
+			</datalist>
+			<input type="submit">
+		</form>
+		<h2>HTML5 &lt;keygen&gt; 元素</h2>
+		<p>&lt;keygen&gt; 元素的作用是提供一种验证用户的可靠方法</p>
+		<p>&lt;keygen&gt; 标签规定用于表单的秘钥对生成器字段</p>
+		<p>当提交表单时. 会生成两个键, 一个是私钥, 一个是公钥</p>
+		<p><strong>私钥</strong> 存储于客户端, <strong>公钥</strong> 
+			则被发送到服务器. 公钥可用于之后验证用户的客服端证书
+		</p>
+		<form>
+			用户名: <input type="text" name="usr_name">
+			加密: 	<keygen name="security">
+			<input type="submit">
+		</form>
+		<h2>HTML5 &lt;output&gt; 元素</h2>
+		<p>&lt;output&gt; 元素用于不同类型的输出, 比如计算或脚本输出</p>
+		<form oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+			0
+			<input type="range" id="a" value="50">
+			100 +
+			<input type="number" id="b" value="50">
+			=
+			<output name="x" for="a b"></output>
+		</form>
+	</body>
+	</html>
